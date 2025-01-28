@@ -1,0 +1,44 @@
+# fly.toml app configuration file generated for grafana-wispy-field-8699 on 2025-01-28T14:13:34+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'grafana-wispy-field-8699'
+primary_region = 'ams'
+
+[build]
+image = 'grafana/grafana-oss'
+
+[[mounts]]
+source = 'grafana'
+destination = '/var/lib/grafana'
+
+[http_service]
+internal_port = 3000
+force_https = true
+auto_stop_machines = 'suspend'
+auto_start_machines = true
+min_machines_running = 0
+processes = ['app']
+
+[[vm]]
+memory = '1gb'
+cpu_kind = 'shared'
+cpus = 1
+
+[env]
+GF_INSTALL_PLUGINS = "grafana-bigquery-datasource,quickwit-quickwit-datasource"
+GF_SERVER_ROOT_URL = "https://grafana-wispy-field-8699.fly.dev/"
+GF_AUTH_GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
+GF_AUTH_GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
+GF_AUTH_GOOGLE_API_URL = "https://openidconnect.googleapis.com/v1/userinfo"
+GF_AUTH_GOOGLE_ENABLED = "true"
+GF_AUTH_GOOGLE_ALLOW_SIGN_UP = "true"
+GF_AUTH_GOOGLE_AUTO_LOGIN = "false"
+GF_AUTH_GOOGLE_SCOPES = "openid email profile"
+GF_AUTH_GOOGLE_ALLOWED_DOMAINS = "gobazzinga.io"
+GF_AUTH_GOOGLE_HOSTED_DOMAIN = "gobazzinga.io"
+GF_AUTH_GOOGLE_USE_PKCE = "true"
+GF_AUTH_GOOGLE_CLIENT_ID = "798408163058-8jrtlpe0hnja9kamijtp8t4e0gc1d4uu.apps.googleusercontent.com"
+GF_AUTH_GOOGLE_CLIENT_SECRET = "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"
+
