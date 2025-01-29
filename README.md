@@ -5,10 +5,14 @@ IaC ops repo for Grafana
 ## Runbook for setting up grafana
 
 -   Create volume on fly
--   Create oauth credentials for google sign in
--   Create fly secrets
 -   Edit fly.toml file to appropriate config
--   Lunch fly grafana app using `fly.toml`
+-   Launch fly grafana app using `fly.toml`
+-   Create oauth credentials for google sign in
+-   Create fly secrets for google oauth
+    -   GF_AUTH_GOOGLE_CLIENT_ID
+    -   GF_AUTH_GOOGLE_CLIENT_SECRET
+-   Edit fly.toml file to appropriate config
+-   Re-deploy fly grafana app using `fly.toml`
 -   Create a role and service account for grafana
 -   Add grafana bigquery data source
 
@@ -16,11 +20,6 @@ IaC ops repo for Grafana
 
 -   Obtain service account for google big query access
 -   Create google big query data source
-
-## Secret environment variables
-
--   GF_AUTH_GOOGLE_CLIENT_ID
--   GF_AUTH_GOOGLE_CLIENT_SECRET
 
 ## References for runbook
 
@@ -30,7 +29,7 @@ IaC ops repo for Grafana
 
 -   [Google oauth setup](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/google/#configure-google-oauth2-authentication)
 
--   [Create service account for big query](https://cloud.google.com/iam/docs/service-accounts-create)
+-   [Service account for big query](https://cloud.google.com/iam/docs/service-accounts-create)
 
     -   Custom role permissions
         ```
