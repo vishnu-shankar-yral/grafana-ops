@@ -16,10 +16,17 @@ IaC ops repo for Grafana
 -   Create a role and service account for grafana
 -   Add grafana bigquery data source
 
+## Migrating dashboards
+
+-   Create grafana service account
+-   Push resources folder using grizzly
+
 ## Grizzly dashboard editing workflow
 
--   Obtain service account for google big query access
--   Create google big query data source
+-   Set grizzly context
+-   Use grizzly serve
+-   Use grizzly apply (if creating a new dashboard, make sure to have no other uncommitted changes)
+-   Edit in preview and make commit
 
 ## References for runbook
 
